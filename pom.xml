@@ -10,10 +10,19 @@
   <build>
     <plugins>
         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <configuration>
+                <outputDirectory>
+                    ${project.build.directory}
+                </outputDirectory>
+            </configuration>
+        </plugin>
+        <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.2.1</version>
-        <executions>
+        <!--<executions>
             <execution>
                 <goals>
                     <goal>java</goal>
@@ -22,11 +31,16 @@
         </executions>
         <configuration>
             <mainClass>com.callgraph.App</mainClass>
-        </configuration>
+        </configuration>-->
         </plugin>
     </plugins>
   </build>
   <dependencies>
+    <dependency>
+    	<groupId>net.sourceforge.maven-jlex</groupId>
+    	<artifactId>maven-jlex-plugin</artifactId>
+    	<version>1.0</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -38,10 +52,11 @@
 	    <artifactId>mysql-connector-java</artifactId>
 	    <version>5.1.6</version>
     </dependency>
+    <!--
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
         <version>2.47.1</version>
-    </dependency>
+    </dependency>-->
   </dependencies>
 </project>
